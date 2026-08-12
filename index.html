@@ -4,74 +4,226 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Noord Holdings</title>
-  <meta name="description" content="Noord Holdings pursues risk-adjusted returns in private real estate and private equity — moving nimbly to capture mispricings where others cannot or will not." />
+  <meta name="description" content="Noord Holdings pursues risk-adjusted returns in real estate private equity — moving nimbly to capture mispricings where others cannot or will not." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body { background: #0D1B2A; color: #F5F0E8; font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+
+    body {
+      background: #0D1B2A;
+      color: #F5F0E8;
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
     #particles { position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: 0.3; }
-    .glow { position: fixed; inset: 0; z-index: 0; pointer-events: none; background: radial-gradient(ellipse 60% 40% at 50% 0%, rgba(15,35,54,0.9) 0%, transparent 70%); }
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 50; display: flex; align-items: center; justify-content: flex-start; padding: 24px 48px 20px; border-bottom: 0.5px solid rgba(201,168,76,0.15); transition: background 0.4s, backdrop-filter 0.4s, padding 0.4s; }
-    nav.scrolled { background: rgba(13,27,42,0.92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); padding: 16px 48px; }
-    .lockup { display: flex; align-items: center; gap: 20px; opacity: 0; transform: translateY(-12px); animation: fadeUp 0.9s cubic-bezier(0.16,1,0.3,1) 0.2s forwards; }
+
+    .glow { position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      background: radial-gradient(ellipse 60% 40% at 50% 0%, rgba(15,35,54,0.9) 0%, transparent 70%); }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+      display: flex; align-items: center; justify-content: center;
+      padding: 24px 48px 20px;
+      border-bottom: 0.5px solid rgba(201,168,76,0.15);
+      transition: background 0.4s, backdrop-filter 0.4s, padding 0.4s;
+    }
+    nav.scrolled {
+      background: rgba(13,27,42,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 16px 48px;
+    }
+    .lockup {
+      display: flex; align-items: center; gap: 20px;
+      opacity: 0; transform: translateY(-12px);
+      animation: fadeUp 0.9s cubic-bezier(0.16,1,0.3,1) 0.2s forwards;
+    }
     .wordmark-name { font-family: Georgia, serif; font-size: 28px; font-weight: 700; letter-spacing: 0.12em; color: #F0E6CC; line-height: 1; }
     .wordmark-sub { font-size: 10px; font-weight: 400; letter-spacing: 0.36em; color: #C9A84C; margin-top: 5px; text-transform: uppercase; }
-    .hero { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 120px 24px 20px; text-align: center; }
-    .hero-eyebrow { font-size: 10px; letter-spacing: 0.32em; text-transform: uppercase; color: #C9A84C; margin-bottom: 24px; opacity: 0; animation: fadeUp 0.9s cubic-bezier(0.16,1,0.3,1) 0.4s forwards; }
-    .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: 76px; font-weight: 500; line-height: 1.06; color: #F5F0E8; margin-bottom: 28px; opacity: 0; animation: fadeUp 0.9s cubic-bezier(0.16,1,0.3,1) 0.55s forwards; will-change: transform; }
+
+    /* ── Hero ── */
+    .hero {
+      position: relative; z-index: 1;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      padding: 120px 24px 20px;
+      text-align: center;
+    }
+    .hero-eyebrow {
+      font-size: 10px; letter-spacing: 0.32em; text-transform: uppercase; color: #C9A84C; margin-bottom: 24px;
+      opacity: 0; animation: fadeUp 0.9s cubic-bezier(0.16,1,0.3,1) 0.4s forwards;
+    }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif; font-size: 76px; font-weight: 500; line-height: 1.06; color: #F5F0E8; margin-bottom: 28px;
+      opacity: 0; animation: fadeUp 0.9s cubic-bezier(0.16,1,0.3,1) 0.55s forwards;
+      will-change: transform;
+    }
     .hero h1 em { color: #C9A84C; font-style: italic; }
-    .hero-sub { font-size: 15px; font-weight: 300; line-height: 1.85; color: rgba(245,240,232,0.6); max-width: 500px; margin: 0 auto; opacity: 0; animation: fadeUp 0.9s cubic-bezier(0.16,1,0.3,1) 0.7s forwards; }
+    .hero-sub {
+      font-size: 15px; font-weight: 300; line-height: 1.85; color: rgba(245,240,232,0.6); max-width: 500px; margin: 0 auto 0;
+      opacity: 0; animation: fadeUp 0.9s cubic-bezier(0.16,1,0.3,1) 0.7s forwards;
+    }
+
+    /* ── Animated counter row ── */
+    .hero-stats {
+      display: flex; gap: 64px; margin-top: 56px; justify-content: center;
+      opacity: 0; animation: fadeUp 0.9s cubic-bezier(0.16,1,0.3,1) 0.85s forwards;
+    }
+    .hero-stat { text-align: center; }
+    .hero-stat-value {
+      font-family: 'Cormorant Garamond', serif; font-size: 38px; font-weight: 500; line-height: 1;
+      color: #C9A84C; display: block;
+    }
+    .hero-stat-label { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(245,240,232,0.35); margin-top: 6px; display: block; }
+    .hero-divider { width: 0.5px; background: rgba(201,168,76,0.2); align-self: stretch; }
+
+    .scroll-hint { margin-top: 36px; display: flex; flex-direction: column; align-items: center; gap: 8px; opacity: 0; animation: fadeUp 0.9s cubic-bezier(0.16,1,0.3,1) 1s forwards; }
+    .scroll-hint span { font-size: 9px; letter-spacing: 0.28em; text-transform: uppercase; color: rgba(201,168,76,0.45); }
+    .scroll-line { width: 0.5px; height: 36px; background: linear-gradient(180deg, rgba(201,168,76,0.5), transparent); animation: scrollPulse 2s ease-in-out 1.5s infinite; }
+
+    /* ── Sections ── */
     .section { position: relative; z-index: 1; padding: 56px 48px; max-width: 900px; margin: 0 auto; }
     .section-header { display: flex; align-items: center; gap: 20px; margin-bottom: 40px; }
     .section-tag { font-size: 9px; letter-spacing: 0.32em; text-transform: uppercase; color: #C9A84C; white-space: nowrap; }
     .section-rule { flex: 1; height: 0.5px; background: linear-gradient(90deg, rgba(201,168,76,0.4), transparent); }
+
+    /* ── Philosophy row ── */
+    .philosophy-section { padding-top: 40px; padding-bottom: 40px; }
+    .philosophy-section .section-header { margin-bottom: 28px; }
     .philosophy-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; }
-    .phil-item { background: #0F2336; padding: 36px 28px; border: 0.5px solid rgba(201,168,76,0.12); position: relative; overflow: hidden; transition: background 0.3s; }
+    .phil-item {
+      background: #0F2336; padding: 28px 26px;
+      border: 0.5px solid rgba(201,168,76,0.12);
+      position: relative; overflow: hidden;
+      transition: background 0.3s;
+    }
     .phil-item:hover { background: rgba(15,35,54,0.8); }
-    .phil-item::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, #C9A84C, transparent); transform: scaleX(0); transition: transform 0.4s cubic-bezier(0.16,1,0.3,1); }
+    .phil-item::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, transparent, #C9A84C, transparent);
+      transform: scaleX(0); transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);
+    }
     .phil-item:hover::after { transform: scaleX(1); }
     .phil-icon { font-size: 14px; color: rgba(201,168,76,0.6); flex-shrink: 0; margin-top: 2px; }
     .phil-header { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; }
     .phil-item h3 { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 600; color: #F0E6CC; line-height: 1.2; }
     .phil-item p { font-size: 12px; font-weight: 300; line-height: 1.75; color: rgba(245,240,232,0.45); }
-    .focus-card { background: #0F2336; border: 0.5px solid rgba(201,168,76,0.18); padding: 48px 48px; position: relative; overflow: hidden; margin-bottom: 2px; transition: background 0.4s; }
+
+    /* ── Strategy cards ── */
+    .focus-card {
+      background: #0F2336; border: 0.5px solid rgba(201,168,76,0.18);
+      padding: 48px 48px; position: relative; overflow: hidden; margin-bottom: 2px;
+      transition: background 0.4s;
+    }
     .focus-card:hover { background: rgba(15,35,54,0.95); }
     .focus-card::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 100%; background: linear-gradient(180deg, #C9A84C, transparent); }
     .focus-card::after { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 40% at 0% 50%, rgba(201,168,76,0.05) 0%, transparent 70%); opacity: 0; transition: opacity 0.4s; }
     .focus-card:hover::after { opacity: 1; }
-    .focus-card-num { font-family: 'Cormorant Garamond', serif; font-size: 64px; font-weight: 400; color: rgba(201,168,76,0.07); line-height: 1; position: absolute; bottom: 20px; right: 32px; pointer-events: none; }
     .focus-card h2 { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 600; color: #F0E6CC; margin-bottom: 14px; letter-spacing: 0.02em; }
     .focus-card p { font-size: 14px; font-weight: 300; line-height: 1.85; color: rgba(245,240,232,0.55); max-width: 560px; }
     .focus-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
     .tag { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: #C9A84C; border: 0.5px solid rgba(201,168,76,0.3); padding: 6px 14px; transition: background 0.2s; cursor: default; }
     .tag:hover { background: rgba(201,168,76,0.08); }
-    .thesis { border: 0.5px solid rgba(201,168,76,0.18); border-top: none; background: #0D1B2A; padding: 52px 48px; display: flex; gap: 52px; align-items: flex-start; position: relative; }
-    .thesis::before { content: '\201C'; font-family: 'Cormorant Garamond', serif; font-size: 120px; line-height: 0.6; color: rgba(201,168,76,0.07); position: absolute; top: 28px; right: 40px; }
-    .thesis-label { font-size: 9px; letter-spacing: 0.32em; text-transform: uppercase; color: #C9A84C; white-space: nowrap; padding-top: 5px; flex-shrink: 0; }
-    .thesis-body { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 400; line-height: 1.65; color: rgba(245,240,232,0.78); font-style: italic; position: relative; z-index: 1; }
+
+    /* ── Category strip (minimal underline switcher) ── */
+    .cat-strip { margin-top: 28px; }
+    .cat-nav {
+      position: relative; display: flex; gap: 32px;
+      border-bottom: 0.5px solid rgba(201,168,76,0.18);
+      padding-bottom: 14px; margin-bottom: 20px;
+    }
+    .cat-item {
+      background: none; border: none; cursor: pointer; font-family: inherit;
+      font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+      color: rgba(245,240,232,0.4); padding: 0; transition: color 0.3s;
+    }
+    .cat-item:hover { color: rgba(245,240,232,0.7); }
+    .cat-item.active { color: #C9A84C; }
+    .cat-indicator {
+      position: absolute; bottom: -0.5px; height: 1.5px; background: #C9A84C;
+      transition: left 0.4s cubic-bezier(0.16,1,0.3,1), width 0.4s cubic-bezier(0.16,1,0.3,1);
+    }
+    .cat-body { position: relative; min-height: 44px; }
+    .cat-desc {
+      display: none; font-size: 13px; font-weight: 300; line-height: 1.8;
+      color: rgba(245,240,232,0.5); max-width: 620px;
+    }
+    .cat-desc.active { display: block; animation: fadeUp 0.45s cubic-bezier(0.16,1,0.3,1) forwards; }
+
+    /* ── Principles ── */
+    .principles { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+    .principle {
+      background: #0F2336; border: 0.5px solid rgba(201,168,76,0.12); padding: 36px 32px;
+      display: flex; gap: 20px; align-items: flex-start;
+      transition: background 0.3s;
+    }
+    .principle:hover { background: rgba(15,35,54,0.8); }
+    .principle-num { font-family: 'Cormorant Garamond', serif; font-size: 28px; color: rgba(201,168,76,0.25); line-height: 1; flex-shrink: 0; }
+    .principle h3 { font-family: 'Cormorant Garamond', serif; font-size: 17px; font-weight: 600; color: #F0E6CC; margin-bottom: 8px; }
+    .principle p { font-size: 12px; font-weight: 300; line-height: 1.75; color: rgba(245,240,232,0.45); }
+
+    /* ── Contact ── */
     .contact-section { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; padding: 0 48px 56px; }
-    .contact-inner { border: 0.5px solid rgba(201,168,76,0.18); background: #0F2336; padding: 52px 48px; display: flex; align-items: center; justify-content: space-between; gap: 40px; }
+    .contact-inner {
+      border: 0.5px solid rgba(201,168,76,0.18);
+      background: #0F2336; padding: 52px 48px;
+      display: flex; align-items: center; justify-content: space-between; gap: 40px;
+    }
     .contact-left h2 { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 500; color: #F0E6CC; margin-bottom: 10px; }
     .contact-left p { font-size: 13px; font-weight: 300; color: rgba(245,240,232,0.45); line-height: 1.7; }
-    .contact-email { display: inline-block; font-size: 13px; font-weight: 400; color: #C9A84C; border: 0.5px solid rgba(201,168,76,0.35); padding: 14px 28px; text-decoration: none; white-space: nowrap; transition: background 0.2s; }
+    .contact-email {
+      display: inline-block;
+      font-size: 13px; font-weight: 400; color: #C9A84C;
+      border: 0.5px solid rgba(201,168,76,0.35); padding: 14px 28px;
+      text-decoration: none; white-space: nowrap;
+      transition: background 0.2s, color 0.2s;
+    }
     .contact-email:hover { background: rgba(201,168,76,0.1); }
-    .disclaimer-banner { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; padding: 0 48px; }
-    .disclaimer-banner-inner { padding: 20px 28px; border: 0.5px solid rgba(201,168,76,0.12); background: rgba(13,27,42,0.6); display: flex; align-items: flex-start; gap: 14px; }
+
+    /* ── Disclaimer banner ── */
+    .disclaimer-banner {
+      position: relative; z-index: 1;
+      max-width: 900px; margin: 0 auto 0;
+      padding: 0 48px;
+    }
+    .disclaimer-banner-inner {
+      padding: 20px 28px; border: 0.5px solid rgba(201,168,76,0.12);
+      background: rgba(13,27,42,0.6); display: flex; align-items: flex-start; gap: 14px;
+    }
     .disclaimer-banner-inner span.icon { color: rgba(201,168,76,0.4); font-size: 13px; flex-shrink: 0; padding-top: 2px; }
     .disclaimer-banner-inner p { font-size: 11px; font-weight: 300; line-height: 1.7; color: rgba(245,240,232,0.3); }
     .disclaimer-banner-inner a { color: rgba(201,168,76,0.55); text-decoration: none; border-bottom: 0.5px solid rgba(201,168,76,0.2); cursor: pointer; }
     .disclaimer-banner-inner a:hover { color: #C9A84C; }
-    footer { position: relative; z-index: 1; display: flex; align-items: center; justify-content: space-between; padding: 28px 48px; border-top: 0.5px solid rgba(201,168,76,0.1); margin-top: 40px; }
+
+    /* ── Footer ── */
+    footer {
+      position: relative; z-index: 1;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 28px 48px; border-top: 0.5px solid rgba(201,168,76,0.1); margin-top: 40px;
+    }
     .footer-copy { font-size: 10px; letter-spacing: 0.1em; color: rgba(245,240,232,0.2); }
     .footer-legal { display: flex; gap: 24px; }
     .footer-legal a { font-size: 10px; letter-spacing: 0.1em; color: rgba(245,240,232,0.2); text-decoration: none; cursor: pointer; transition: color 0.2s; }
     .footer-legal a:hover { color: rgba(245,240,232,0.5); }
-    .modal-overlay { position: fixed; inset: 0; z-index: 100; background: rgba(0,0,0,0.8); display: flex; align-items: center; justify-content: center; padding: 24px; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+
+    /* ── Modal ── */
+    .modal-overlay {
+      position: fixed; inset: 0; z-index: 100;
+      background: rgba(0,0,0,0.8); display: flex; align-items: center; justify-content: center; padding: 24px;
+      opacity: 0; pointer-events: none; transition: opacity 0.3s;
+    }
     .modal-overlay.open { opacity: 1; pointer-events: all; }
-    .modal { background: #0F2336; border: 0.5px solid rgba(201,168,76,0.25); max-width: 640px; width: 100%; padding: 48px; position: relative; transform: translateY(16px); transition: transform 0.3s cubic-bezier(0.16,1,0.3,1); max-height: 80vh; overflow-y: auto; }
+    .modal {
+      background: #0F2336; border: 0.5px solid rgba(201,168,76,0.25);
+      max-width: 640px; width: 100%; padding: 48px; position: relative;
+      transform: translateY(16px); transition: transform 0.3s cubic-bezier(0.16,1,0.3,1);
+      max-height: 80vh; overflow-y: auto;
+    }
     .modal-overlay.open .modal { transform: translateY(0); }
     .modal-close { position: absolute; top: 20px; right: 24px; background: none; border: none; color: rgba(245,240,232,0.3); font-size: 20px; cursor: pointer; transition: color 0.2s; }
     .modal-close:hover { color: rgba(245,240,232,0.7); }
@@ -79,21 +231,32 @@
     .modal p { font-size: 12px; font-weight: 300; line-height: 1.85; color: rgba(245,240,232,0.5); margin-bottom: 16px; }
     .modal p:last-child { margin-bottom: 0; }
     .modal-rule { height: 0.5px; background: rgba(201,168,76,0.12); margin: 20px 0; }
+
+    /* ── Scroll reveal ── */
     .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.85s cubic-bezier(0.16,1,0.3,1), transform 0.85s cubic-bezier(0.16,1,0.3,1); }
     .reveal.visible { opacity: 1; transform: translateY(0); }
     .reveal-d1 { transition-delay: 0.1s; }
     .reveal-d2 { transition-delay: 0.2s; }
     .reveal-d3 { transition-delay: 0.3s; }
+
+    /* ── Keyframes ── */
     @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
     @keyframes scrollPulse { 0%,100%{opacity:.4}50%{opacity:.9} }
+    @keyframes countUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* ── Responsive ── */
     @media (max-width: 720px) {
-      nav { padding: 20px 24px 16px; justify-content: center; }
+      nav { padding: 20px 24px 16px; }
       nav.scrolled { padding: 14px 24px; }
       .hero h1 { font-size: 44px; }
+      .hero-stats { gap: 32px; flex-wrap: wrap; }
       .section, .contact-section { padding-left: 24px; padding-right: 24px; }
       .philosophy-grid { grid-template-columns: 1fr; }
       .focus-card { padding: 36px 28px; }
-      .thesis, .contact-inner { flex-direction: column; gap: 20px; padding: 36px 28px; }
+      .cat-nav { gap: 20px; flex-wrap: wrap; }
+      .cat-item { font-size: 10px; }
+      .principles { grid-template-columns: 1fr; }
+      .contact-inner { flex-direction: column; gap: 20px; padding: 36px 28px; }
       .contact-inner { align-items: flex-start; }
       .disclaimer-banner { padding: 0 24px; }
       footer { flex-direction: column; gap: 16px; text-align: center; padding: 24px; }
@@ -103,8 +266,10 @@
   </style>
 </head>
 <body>
+
   <canvas id="particles"></canvas>
   <div class="glow"></div>
+  <!-- Disclaimer Modal -->
   <div class="modal-overlay" id="disclaimerModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal">
       <button class="modal-close" onclick="closeModal()" aria-label="Close">&#x2715;</button>
@@ -120,10 +285,16 @@
       <p><strong style="color:rgba(245,240,232,0.7)">No Liability.</strong> Noord Holdings makes no representations or warranties, express or implied, as to the accuracy or completeness of the information on this website. To the fullest extent permitted by law, Noord Holdings accepts no liability for any loss or damage arising from reliance on the information contained herein.</p>
     </div>
   </div>
+
+  <!-- Fixed nav -->
   <nav id="navbar">
     <div class="lockup">
       <svg width="48" height="65" viewBox="0 0 128 218" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Noord Holdings shield">
-        <defs><clipPath id="shield-clip"><path d="M64 0 L128 0 L128 145 Q96 198 64 218 Q32 198 0 145 L0 0 Z"/></clipPath></defs>
+        <defs>
+          <clipPath id="shield-clip">
+            <path d="M64 0 L128 0 L128 145 Q96 198 64 218 Q32 198 0 145 L0 0 Z"/>
+          </clipPath>
+        </defs>
         <path d="M64 0 L128 0 L128 145 Q96 198 64 218 Q32 198 0 145 L0 0 Z" fill="#0F2336" stroke="#C9A84C" stroke-width="4"/>
         <g clip-path="url(#shield-clip)">
           <rect x="54" y="0" width="20" height="218" fill="#C9A84C"/>
@@ -139,13 +310,37 @@
       </div>
     </div>
   </nav>
+
   <main>
+
+    <!-- Hero -->
     <section class="hero">
       <p class="hero-eyebrow">Private Investment</p>
       <h1 id="heroTitle">Capital Deployed<br>with <em>Precision.</em></h1>
-      <p class="hero-sub">Noord Holdings pursues risk-adjusted returns across private real estate and private equity — moving nimbly to capture mispricings that larger institutions overlook or cannot access.</p>
+      <p class="hero-sub">Noord Holdings pursues risk-adjusted returns in real estate private equity — moving nimbly to capture mispricings that larger institutions overlook or cannot access.</p>
+
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="hero-stat-value">Real Estate</span>
+          <span class="hero-stat-label">Investment Focus</span>
+        </div>
+        <div class="hero-divider"></div>
+        <div class="hero-stat">
+          <span class="hero-stat-value">Global</span>
+          <span class="hero-stat-label">Market Reach</span>
+        </div>
+        <div class="hero-divider"></div>
+        <div class="hero-stat">
+          <span class="hero-stat-value">Nimble</span>
+          <span class="hero-stat-label">By Design</span>
+        </div>
+      </div>
+
+
     </section>
-    <div class="section">
+
+    <!-- Philosophy -->
+    <div class="section philosophy-section">
       <div class="section-header reveal">
         <span class="section-tag">Our Philosophy</span>
         <div class="section-rule"></div>
@@ -165,14 +360,16 @@
         </div>
       </div>
     </div>
+
+    <!-- Strategies -->
     <div class="section" style="padding-top:0;">
       <div class="section-header reveal">
         <span class="section-tag">Our Strategies</span>
         <div class="section-rule"></div>
       </div>
+
       <div class="focus-card reveal">
-        <div class="focus-card-num">01</div>
-        <h2>Private Real Estate</h2>
+        <h2>Real Estate Private Equity</h2>
         <p>We acquire real estate in select markets where value is obscured by complexity, illiquidity, or cycle timing. Without the constraints of a large institutional structure, we move decisively — concentrating capital in high-conviction opportunities and acting where others hesitate.</p>
         <div class="focus-tags">
           <span class="tag">Value-Add</span>
@@ -181,23 +378,25 @@
           <span class="tag">Long-Horizon</span>
         </div>
       </div>
-      <div style="height:2px; background: linear-gradient(90deg, transparent, rgba(201,168,76,0.5), transparent); margin: 2px 0;"></div>
-      <div class="focus-card reveal reveal-d1">
-        <div class="focus-card-num">02</div>
-        <h2>Private Equity</h2>
-        <p>We take minority and control stakes in businesses with durable competitive advantages, partnering directly with founders and operators. Our lean structure allows us to underwrite complexity, move quickly on mispriced situations, and remain actively involved in value creation.</p>
-        <div class="focus-tags">
-          <span class="tag">Minority Stakes</span>
-          <span class="tag">Control Positions</span>
-          <span class="tag">Founder-Led</span>
-          <span class="tag">Operational Value</span>
+
+      <div class="cat-strip reveal reveal-d1">
+        <div class="cat-nav">
+          <button class="cat-item active" data-cat="0">Residential</button>
+          <button class="cat-item" data-cat="1">Development</button>
+          <button class="cat-item" data-cat="2">Industrial</button>
+          <button class="cat-item" data-cat="3">Retail</button>
+          <span class="cat-indicator"></span>
+        </div>
+        <div class="cat-body">
+          <p class="cat-desc active" data-cat="0">Multi-family and single-family residential — apartment repositioning and lease-up in supply-constrained submarkets, plus aggregated single-family rental portfolios in growth markets.</p>
+          <p class="cat-desc" data-cat="1">Ground-up, single-family luxury development in premium submarkets — controlling the process from land acquisition through final finish, in partnership with select architects and builders.</p>
+          <p class="cat-desc" data-cat="2">Warehouse, logistics, and light-industrial assets along key distribution corridors, underwritten for the structural tailwinds of e-commerce growth and supply chain reconfiguration.</p>
+          <p class="cat-desc" data-cat="3">Necessity-based, well-located retail where mispricing stems from sector sentiment rather than asset fundamentals — strong tenant credit, irreplaceable locations.</p>
         </div>
       </div>
-      <div class="thesis reveal">
-        <span class="thesis-label">Our Edge</span>
-        <p class="thesis-body">We are built to be nimble. Without the constraints of a large fund structure, we can concentrate capital in our highest-conviction ideas and respond to market mispricings with speed and precision.</p>
-      </div>
     </div>
+
+    <!-- Contact -->
     <div class="contact-section">
       <div class="section-header reveal">
         <span class="section-tag">Get in Touch</span>
@@ -211,13 +410,17 @@
         <a href="mailto:jacob@noordholdings.com" class="contact-email">jacob@noordholdings.com</a>
       </div>
     </div>
+
+    <!-- Disclaimer -->
     <div class="disclaimer-banner reveal">
       <div class="disclaimer-banner-inner">
         <span class="icon">&#9432;</span>
         <p>This website is for informational purposes only and does not constitute an offer to sell or solicitation to buy any security. Investment opportunities are intended solely for accredited investors. Past performance is not indicative of future results. All investments involve risk, including loss of principal. <a onclick="openModal()">Read full disclaimer.</a></p>
       </div>
     </div>
+
   </main>
+
   <footer>
     <span class="footer-copy">© 2026 Noord Holdings. All rights reserved.</span>
     <div class="footer-legal">
@@ -226,7 +429,9 @@
       <a onclick="openModal()">Terms</a>
     </div>
   </footer>
+
   <script>
+    // ── Particles ──
     const canvas = document.getElementById('particles');
     const ctx = canvas.getContext('2d');
     let W, H, ptcls = [];
@@ -244,6 +449,8 @@
       requestAnimationFrame(drawP);
     }
     drawP();
+
+    // ── Parallax on hero title ──
     document.addEventListener('mousemove', e => {
       const hero = document.getElementById('heroTitle');
       if (hero) {
@@ -252,17 +459,45 @@
         hero.style.transform = `translate(${rx*0.25}px, ${ry*0.25}px)`;
       }
     });
+
+    // ── Sticky nav ──
     const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => { navbar.classList.toggle('scrolled', window.scrollY > 60); });
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // ── Scroll reveal ──
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver(entries => {
       entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); observer.unobserve(e.target); } });
     }, { threshold: 0.1 });
     reveals.forEach(el => observer.observe(el));
+
+    // ── Category strip (minimal underline switcher) ──
+    const catItems = document.querySelectorAll('.cat-item');
+    const catDescs = document.querySelectorAll('.cat-desc');
+    const catIndicator = document.querySelector('.cat-indicator');
+    function moveIndicator(el) {
+      if (!catIndicator || !el) return;
+      catIndicator.style.left = el.offsetLeft + 'px';
+      catIndicator.style.width = el.offsetWidth + 'px';
+    }
+    function activateCatItem(item) {
+      const target = item.getAttribute('data-cat');
+      catItems.forEach(i => i.classList.toggle('active', i === item));
+      catDescs.forEach(d => d.classList.toggle('active', d.getAttribute('data-cat') === target));
+      moveIndicator(item);
+    }
+    catItems.forEach(item => item.addEventListener('click', () => activateCatItem(item)));
+    window.addEventListener('load', () => moveIndicator(document.querySelector('.cat-item.active')));
+    window.addEventListener('resize', () => moveIndicator(document.querySelector('.cat-item.active')));
+
+    // ── Modal ──
     function openModal() { document.getElementById('disclaimerModal').classList.add('open'); document.body.style.overflow='hidden'; }
     function closeModal() { document.getElementById('disclaimerModal').classList.remove('open'); document.body.style.overflow=''; }
     document.getElementById('disclaimerModal').addEventListener('click', function(e) { if(e.target===this) closeModal(); });
     document.addEventListener('keydown', e => { if(e.key==='Escape') closeModal(); });
   </script>
+
 </body>
 </html>
