@@ -69,19 +69,6 @@
       opacity: 0; animation: fadeUp 0.9s cubic-bezier(0.16,1,0.3,1) 0.7s forwards;
     }
 
-    /* ── Animated counter row ── */
-    .hero-stats {
-      display: flex; gap: 64px; margin-top: 56px; justify-content: center;
-      opacity: 0; animation: fadeUp 0.9s cubic-bezier(0.16,1,0.3,1) 0.85s forwards;
-    }
-    .hero-stat { text-align: center; }
-    .hero-stat-value {
-      font-family: 'Cormorant Garamond', serif; font-size: 38px; font-weight: 500; line-height: 1;
-      color: #C9A84C; display: block;
-    }
-    .hero-stat-label { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(245,240,232,0.35); margin-top: 6px; display: block; }
-    .hero-divider { width: 0.5px; background: rgba(201,168,76,0.2); align-self: stretch; }
-
     .scroll-hint { margin-top: 36px; display: flex; flex-direction: column; align-items: center; gap: 8px; opacity: 0; animation: fadeUp 0.9s cubic-bezier(0.16,1,0.3,1) 1s forwards; }
     .scroll-hint span { font-size: 9px; letter-spacing: 0.28em; text-transform: uppercase; color: rgba(201,168,76,0.45); }
     .scroll-line { width: 0.5px; height: 36px; background: linear-gradient(180deg, rgba(201,168,76,0.5), transparent); animation: scrollPulse 2s ease-in-out 1.5s infinite; }
@@ -249,7 +236,6 @@
       nav { padding: 20px 24px 16px; }
       nav.scrolled { padding: 14px 24px; }
       .hero h1 { font-size: 44px; }
-      .hero-stats { gap: 32px; flex-wrap: wrap; }
       .section, .contact-section { padding-left: 24px; padding-right: 24px; }
       .philosophy-grid { grid-template-columns: 1fr; }
       .focus-card { padding: 36px 28px; }
@@ -318,24 +304,6 @@
       <p class="hero-eyebrow">Private Investment</p>
       <h1 id="heroTitle">Capital Deployed<br>with <em>Precision.</em></h1>
       <p class="hero-sub">Noord Holdings pursues risk-adjusted returns in real estate private equity — moving nimbly to capture mispricings that larger institutions overlook or cannot access.</p>
-
-      <div class="hero-stats">
-        <div class="hero-stat">
-          <span class="hero-stat-value">Real Estate</span>
-          <span class="hero-stat-label">Investment Focus</span>
-        </div>
-        <div class="hero-divider"></div>
-        <div class="hero-stat">
-          <span class="hero-stat-value">Global</span>
-          <span class="hero-stat-label">Market Reach</span>
-        </div>
-        <div class="hero-divider"></div>
-        <div class="hero-stat">
-          <span class="hero-stat-value">Nimble</span>
-          <span class="hero-stat-label">By Design</span>
-        </div>
-      </div>
-
 
     </section>
 
